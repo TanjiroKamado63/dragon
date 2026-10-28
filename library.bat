@@ -1,4 +1,3 @@
-
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 title Android Practical PDF Library
@@ -9,12 +8,12 @@ cd /d "%~dp0"
 :MENU
 cls
 echo.
-echo  ====================================================================================================
-echo                                ANDROID PRACTICAL PDF LIBRARY
-echo  ====================================================================================================
+echo ====================================================================================================
+echo                                     ANDROID PRACTICAL PDF LIBRARY
+echo ====================================================================================================
 echo.
 echo   MODULE 1 - ANDROID UI AND LAYOUT PRACTICALS
-echo  ----------------------------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------------------------
 echo   1.  Hello World Android Application
 echo   2.  Programming Resources - Colors, Themes, Strings, Dimensions, Drawables
 echo   3.  Activity Lifecycle and Logcat
@@ -32,7 +31,7 @@ echo   14. GridView - Custom Adapter
 echo   15. RecyclerView - Modern ListView Alternative
 echo.
 echo   MODULE 2 - ANDROID COMPONENTS AND DATABASE
-echo  ----------------------------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------------------------
 echo   16. Toolbar and Options Menu
 echo   17. AlertDialog and Custom DialogFragment
 echo   18. Contextual and Popup Menus
@@ -49,10 +48,10 @@ echo   28. Threads and Handlers
 echo   29. Media and Telephone APIs
 echo   30. Runtime Permissions and Security
 echo.
-echo  ====================================================================================================
+echo ====================================================================================================
 echo   D. Open ALL practical PDFs
 echo   Q. Quit
-echo  ====================================================================================================
+echo ====================================================================================================
 echo.
 
 set "choice="
@@ -106,10 +105,10 @@ if exist "%~dp0%~1" (
     start "" "%~dp0%~1"
 ) else (
     echo.
-    echo  PDF not found:
-    echo  %~1
+    echo   PDF not found:
+    echo   %~1
     echo.
-    echo  Download the repository PDFs and place them beside library.bat.
+    echo   Download the repository PDFs and place them beside library.bat.
     pause
 )
 exit /b
@@ -129,6 +128,6 @@ goto MENU
 
 :INVALID
 echo.
-echo  Invalid choice. Enter a number from 1 to 30, D, or Q.
+echo   Invalid choice. Enter a number from 1 to 30, D, or Q.
 timeout /t 2 >nul
 goto MENU
