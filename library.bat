@@ -5,6 +5,8 @@ color 0F
 mode con: cols=100 lines=43
 cd /d "%~dp0"
 
+set "REPO_URL=https://raw.githubusercontent.com/TanjiroKamado63/dragon/refs/heads/main"
+
 :MENU
 cls
 echo.
@@ -49,7 +51,7 @@ echo   29. Media and Telephone APIs
 echo   30. Runtime Permissions and Security
 echo.
 echo ====================================================================================================
-echo   D. Open ALL practical PDFs
+echo   D. Download and Open ALL practical PDFs
 echo   Q. Quit
 echo ====================================================================================================
 echo.
@@ -101,28 +103,63 @@ if "!choice!"=="30" call :OPEN "Module_2_Practical_15_Runtime_Permissions_and_Se
 goto MENU
 
 :OPEN
+if not exist "%~dp0%~1" (
+    echo.
+    echo   [+] Downloading missing PDF from GitHub: %~1
+    curl -sL "%REPO_URL%/%~1" -o "%~dp0%~1"
+)
 if exist "%~dp0%~1" (
     start "" "%~dp0%~1"
 ) else (
     echo.
-    echo   PDF not found:
-    echo   %~1
-    echo.
-    echo   Download the repository PDFs and place them beside library.bat.
+    echo   [x] Failed to download %~1. Please check your internet connection.
     pause
 )
 exit /b
 
 :ALL
-set /a COUNT=0
-for %%F in ("%~dp0*.pdf") do (
-    if exist "%%~fF" (
-        start "" "%%~fF"
-        set /a COUNT+=1
+echo.
+echo   [+] Downloading all missing PDFs from GitHub...
+for %%F in (
+    "Module_1_Practical_01_Hello_World_Android_Application.pdf"
+    "Module_1_Practical_02_Programming_Resources_Colors_Themes_Strings_Dimens_Drawables.pdf"
+    "Module_1_Practical_03_Activity_Lifecycle_and_Logcat.pdf"
+    "Module_1_Practical_04_Create_Fragment_and_Fragment_Lifecycle.pdf"
+    "Module_1_Practical_05_Fragment_Based_UI_Navigation.pdf"
+    "Module_1_Practical_06_Activity_and_Fragment_Communication.pdf"
+    "Module_1_Practical_07_LinearLayout_Horizontal_and_Vertical.pdf"
+    "Module_1_Practical_08_RelativeLayout_Dynamic_UI_Alignment.pdf"
+    "Module_1_Practical_09_TableLayout_Login_Registration_Form.pdf"
+    "Module_1_Practical_10_ScrollView_Scrollable_Content.pdf"
+    "Module_1_Practical_11_AbsoluteLayout_Fixed_Positioning.pdf"
+    "Module_1_Practical_12_FrameLayout_Overlay_UI_Elements.pdf"
+    "Module_1_Practical_13_ListView_ArrayAdapter_Item_Click_Handling.pdf"
+    "Module_1_Practical_14_GridView_Custom_Adapter.pdf"
+    "Module_1_Practical_15_RecyclerView_Modern_ListView_Alternative.pdf"
+    "Module_2_Practical_01_Toolbar_and_Options_Menu.pdf"
+    "Module_2_Practical_02_AlertDialog_and_Custom_DialogFragment.pdf"
+    "Module_2_Practical_03_Contextual_and_Popup_Menus.pdf"
+    "Module_2_Practical_04_Explicit_and_Implicit_Intents.pdf"
+    "Module_2_Practical_05_Event_Handling_Click_and_Long_Click_Listeners.pdf"
+    "Module_2_Practical_06_Adapters_Spinner_and_ListView.pdf"
+    "Module_2_Practical_07_Started_and_Bound_Services.pdf"
+    "Module_2_Practical_08_Notifications_with_Notification_Manager.pdf"
+    "Module_2_Practical_09_Static_and_Dynamic_Broadcast_Receivers.pdf"
+    "Module_2_Practical_10_SQLite_Database_CRUD_Operations.pdf"
+    "Module_2_Practical_11_SQLite_with_ListView_or_RecyclerView.pdf"
+    "Module_2_Practical_12_Fetch_and_Parse_JSON_Web_Data.pdf"
+    "Module_2_Practical_13_Threads_and_Handlers.pdf"
+    "Module_2_Practical_14_Media_and_Telephone_APIs.pdf"
+    "Module_2_Practical_15_Runtime_Permissions_and_Security.pdf"
+) do (
+    if not exist "%~dp0%%~F" (
+        curl -sL "%REPO_URL%/%%~F" -o "%~dp0%%~F"
+    )
+    if exist "%~dp0%%~F" (
+        start "" "%~dp0%%~F"
     )
 )
-if !COUNT! EQU 0 echo No PDF files found in this folder.
-if !COUNT! GTR 0 echo Opened !COUNT! PDF files.
+echo   [✓] Done! All available PDFs opened.
 pause
 goto MENU
 
