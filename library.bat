@@ -112,7 +112,7 @@ if exist "%~dp0%~1" (
     start "" "%~dp0%~1"
 ) else (
     echo.
-    echo   [x] Failed to download %~1. Please check your internet connection.
+    echo   [x] Failed to download %~1. Make sure files are committed on GitHub!
     pause
 )
 exit /b
