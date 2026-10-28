@@ -16,35 +16,35 @@ echo.
 echo   MODULE 1 - ANDROID UI AND LAYOUT PRACTICALS
 echo  ----------------------------------------------------------------------------------------------------
 echo   1.  Hello World Android Application
-echo   2.  Programming Resources
+echo   2.  Programming Resources - Colors, Themes, Strings, Dimensions, Drawables
 echo   3.  Activity Lifecycle and Logcat
-echo   4.  Create Fragment and Demonstrate Fragment Lifecycle
+echo   4.  Create Fragment and Fragment Lifecycle
 echo   5.  Fragment-Based UI Navigation
 echo   6.  Activity and Fragment Communication
 echo   7.  LinearLayout - Horizontal and Vertical
-echo   8.  RelativeLayout - Dynamic Layout
-echo   9.  Login Layout
+echo   8.  RelativeLayout - Dynamic UI Alignment
+echo   9.  TableLayout - Login and Registration Form
 echo   10. ScrollView - Scrollable Content
 echo   11. AbsoluteLayout - Fixed Positioning
-echo   12. FrameLayout - Overlay Layout
-echo   13. ListView - ArrayAdapter
+echo   12. FrameLayout - Overlay UI Elements
+echo   13. ListView - ArrayAdapter and Item Click
 echo   14. GridView - Custom Adapter
-echo   15. RecyclerView - Modern List
+echo   15. RecyclerView - Modern ListView Alternative
 echo.
 echo   MODULE 2 - ANDROID COMPONENTS AND DATABASE
 echo  ----------------------------------------------------------------------------------------------------
 echo   16. Toolbar and Options Menu
-echo   17. AlertDialog and Custom Dialog
+echo   17. AlertDialog and Custom DialogFragment
 echo   18. Contextual and Popup Menus
 echo   19. Explicit and Implicit Intents
-echo   20. Event Handling - Click Listeners
+echo   20. Event Handling - Click and Long Click Listeners
 echo   21. Adapters, Spinner and ListView
 echo   22. Started and Bound Services
-echo   23. Notifications with NotificationManager
+echo   23. Notifications with Notification Manager
 echo   24. Static and Dynamic Broadcast Receivers
-echo   25. SQLite Database CRUD
+echo   25. SQLite Database CRUD Operations
 echo   26. SQLite with ListView or RecyclerView
-echo   27. Fetch and Parse JSON
+echo   27. Fetch and Parse JSON Web Data
 echo   28. Threads and Handlers
 echo   29. Media and Telephone APIs
 echo   30. Runtime Permissions and Security
@@ -60,57 +60,56 @@ set /p "choice=Enter practical number (1-30), D, or Q: "
 
 if /i "!choice!"=="Q" exit /b
 if /i "!choice!"=="D" goto ALL
-
-for /f "delims=0123456789" %%A in ("!choice!") do goto INVALID
 if not defined choice goto MENU
 
-if "!choice!"=="1"  call :OPEN "Module_1_Practical_01"
-if "!choice!"=="2"  call :OPEN "Module_1_Practical_02"
-if "!choice!"=="3"  call :OPEN "Module_1_Practical_03"
-if "!choice!"=="4"  call :OPEN "Module_1_Practical_04"
-if "!choice!"=="5"  call :OPEN "Module_1_Practical_05"
-if "!choice!"=="6"  call :OPEN "Module_1_Practical_06"
-if "!choice!"=="7"  call :OPEN "Module_1_Practical_07"
-if "!choice!"=="8"  call :OPEN "Module_1_Practical_08"
-if "!choice!"=="9"  call :OPEN "Module_1_Practical_09"
-if "!choice!"=="10" call :OPEN "Module_1_Practical_10"
-if "!choice!"=="11" call :OPEN "Module_1_Practical_11"
-if "!choice!"=="12" call :OPEN "Module_1_Practical_12"
-if "!choice!"=="13" call :OPEN "Module_1_Practical_13"
-if "!choice!"=="14" call :OPEN "Module_1_Practical_14"
-if "!choice!"=="15" call :OPEN "Module_1_Practical_15"
-
-if "!choice!"=="16" call :OPEN "Module_2_Practical_01"
-if "!choice!"=="17" call :OPEN "Module_2_Practical_02"
-if "!choice!"=="18" call :OPEN "Module_2_Practical_03"
-if "!choice!"=="19" call :OPEN "Module_2_Practical_04"
-if "!choice!"=="20" call :OPEN "Module_2_Practical_05"
-if "!choice!"=="21" call :OPEN "Module_2_Practical_06"
-if "!choice!"=="22" call :OPEN "Module_2_Practical_07"
-if "!choice!"=="23" call :OPEN "Module_2_Practical_08"
-if "!choice!"=="24" call :OPEN "Module_2_Practical_09"
-if "!choice!"=="25" call :OPEN "Module_2_Practical_10"
-if "!choice!"=="26" call :OPEN "Module_2_Practical_11"
-if "!choice!"=="27" call :OPEN "Module_2_Practical_12"
-if "!choice!"=="28" call :OPEN "Module_2_Practical_13"
-if "!choice!"=="29" call :OPEN "Module_2_Practical_14"
-if "!choice!"=="30" call :OPEN "Module_2_Practical_15"
+for /f "delims=0123456789" %%A in ("!choice!") do goto INVALID
 
 if !choice! LSS 1 goto INVALID
 if !choice! GTR 30 goto INVALID
+
+if "!choice!"=="1"  call :OPEN "Module_1_Practical_01_Hello_World_Android_Application.pdf"
+if "!choice!"=="2"  call :OPEN "Module_1_Practical_02_Programming_Resources_Colors_Themes_Strings_Dimens_Drawables.pdf"
+if "!choice!"=="3"  call :OPEN "Module_1_Practical_03_Activity_Lifecycle_and_Logcat.pdf"
+if "!choice!"=="4"  call :OPEN "Module_1_Practical_04_Create_Fragment_and_Fragment_Lifecycle.pdf"
+if "!choice!"=="5"  call :OPEN "Module_1_Practical_05_Fragment_Based_UI_Navigation.pdf"
+if "!choice!"=="6"  call :OPEN "Module_1_Practical_06_Activity_and_Fragment_Communication.pdf"
+if "!choice!"=="7"  call :OPEN "Module_1_Practical_07_LinearLayout_Horizontal_and_Vertical.pdf"
+if "!choice!"=="8"  call :OPEN "Module_1_Practical_08_RelativeLayout_Dynamic_UI_Alignment.pdf"
+if "!choice!"=="9"  call :OPEN "Module_1_Practical_09_TableLayout_Login_Registration_Form.pdf"
+if "!choice!"=="10" call :OPEN "Module_1_Practical_10_ScrollView_Scrollable_Content.pdf"
+if "!choice!"=="11" call :OPEN "Module_1_Practical_11_AbsoluteLayout_Fixed_Positioning.pdf"
+if "!choice!"=="12" call :OPEN "Module_1_Practical_12_FrameLayout_Overlay_UI_Elements.pdf"
+if "!choice!"=="13" call :OPEN "Module_1_Practical_13_ListView_ArrayAdapter_Item_Click_Handling.pdf"
+if "!choice!"=="14" call :OPEN "Module_1_Practical_14_GridView_Custom_Adapter.pdf"
+if "!choice!"=="15" call :OPEN "Module_1_Practical_15_RecyclerView_Modern_ListView_Alternative.pdf"
+
+if "!choice!"=="16" call :OPEN "Module_2_Practical_01_Toolbar_and_Options_Menu.pdf"
+if "!choice!"=="17" call :OPEN "Module_2_Practical_02_AlertDialog_and_Custom_DialogFragment.pdf"
+if "!choice!"=="18" call :OPEN "Module_2_Practical_03_Contextual_and_Popup_Menus.pdf"
+if "!choice!"=="19" call :OPEN "Module_2_Practical_04_Explicit_and_Implicit_Intents.pdf"
+if "!choice!"=="20" call :OPEN "Module_2_Practical_05_Event_Handling_Click_and_Long_Click_Listeners.pdf"
+if "!choice!"=="21" call :OPEN "Module_2_Practical_06_Adapters_Spinner_and_ListView.pdf"
+if "!choice!"=="22" call :OPEN "Module_2_Practical_07_Started_and_Bound_Services.pdf"
+if "!choice!"=="23" call :OPEN "Module_2_Practical_08_Notifications_with_Notification_Manager.pdf"
+if "!choice!"=="24" call :OPEN "Module_2_Practical_09_Static_and_Dynamic_Broadcast_Receivers.pdf"
+if "!choice!"=="25" call :OPEN "Module_2_Practical_10_SQLite_Database_CRUD_Operations.pdf"
+if "!choice!"=="26" call :OPEN "Module_2_Practical_11_SQLite_with_ListView_or_RecyclerView.pdf"
+if "!choice!"=="27" call :OPEN "Module_2_Practical_12_Fetch_and_Parse_JSON_Web_Data.pdf"
+if "!choice!"=="28" call :OPEN "Module_2_Practical_13_Threads_and_Handlers.pdf"
+if "!choice!"=="29" call :OPEN "Module_2_Practical_14_Media_and_Telephone_APIs.pdf"
+if "!choice!"=="30" call :OPEN "Module_2_Practical_15_Runtime_Permissions_and_Security.pdf"
+
 goto MENU
 
 :OPEN
-set "MATCH="
-for %%F in ("%~dp0%~1*.pdf") do (
-    if exist "%%~fF" if not defined MATCH set "MATCH=%%~fF"
-)
-if defined MATCH (
-    start "" "!MATCH!"
+if exist "%~dp0%~1" (
+    start "" "%~dp0%~1"
 ) else (
     echo.
-    echo  PDF not found for %~1
-    echo  Check that the PDF is in the same folder as library.bat.
+    echo  PDF not found:
+    echo  %~1
+    echo.
+    echo  Download the repository PDFs and place them beside library.bat.
     pause
 )
 exit /b
